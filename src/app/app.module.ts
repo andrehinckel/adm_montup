@@ -18,6 +18,7 @@ import { fuseConfig } from 'app/fuse-config';
 import { AppComponent } from 'app/app.component';
 import { LayoutModule } from 'app/layout/layout.module';
 import { SampleModule } from 'app/main/sample/sample.module';
+import { MontanhasComponent } from './main/pages/montanhas/montanhas.component';
 
 const appRoutes: Routes = [
     {
@@ -28,7 +29,8 @@ const appRoutes: Routes = [
 
 @NgModule({
     declarations: [
-        AppComponent
+        AppComponent,
+        MontanhasComponent
     ],
     imports     : [
         BrowserModule,

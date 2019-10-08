@@ -45,12 +45,14 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { AutenticaoInterceptor } from './main/pages/login/autenticacao.interceptor';
 import { GuiaComponent } from './main/pages/guias/guia.component';
+import { ComentarioComponent } from './main/pages/comentarios/comentario/comentario.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         LoginComponent,
-        GuiaComponent
+        GuiaComponent,
+        ComentarioComponent
     ],
     imports     : [
         BrowserModule,

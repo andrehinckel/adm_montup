@@ -1,0 +1,30 @@
+@import "src/@fuse/scss/fuse";
+
+
+
+.header {
+  background: linear-gradient(to right, rgba(23, 120, 138, 0.87) 20%, rgb(29, 190, 137) 100%);
+}
+
+.header2 {
+  background: rgba(38, 161, 114, 0.5) 100%;
+    
+ }
+
+.circle {
+    border-radius: 50%;
+    width: 105px;
+    height: 100px;
+    overflow: hidden;
+    position: relative;
+    padding: 5px;
+}
+
+.circle img {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+
+

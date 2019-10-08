@@ -44,17 +44,27 @@ import { CommonModule } from '@angular/common';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { AutenticaoInterceptor } from './main/pages/login/autenticacao.interceptor';
+import { GuiaComponent } from './main/pages/guias/guia.component';
 
 @NgModule({
     declarations: [
         AppComponent,
-        LoginComponent
+        LoginComponent,
+        GuiaComponent
     ],
     imports     : [
         BrowserModule,
         BrowserAnimationsModule,
         HttpClientModule,
         AppRoutingModule,
+
+        MatButtonModule,
+        MatIconModule,
+        MatTabsModule,
+
+        FuseSidebarModule,
+        FuseSharedModule,
+        FuseDemoModule,
 
         TranslateModule.forRoot(),
 

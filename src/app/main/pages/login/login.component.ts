@@ -6,7 +6,6 @@ import { fuseAnimations } from '@fuse/animations';
 import { Router } from '@angular/router';
 import { AutenticacaoService } from 'app/services/autenticacao.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { duration } from 'moment';
 
 @Component({
     selector: 'login',

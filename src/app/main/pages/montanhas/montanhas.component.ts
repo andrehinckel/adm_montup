@@ -3,6 +3,8 @@ import { Montanha } from 'app/models/montanha';
 import { MontanhaService } from 'app/services/montanha.service';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
+import { FormGroup, FormBuilder } from '@angular/forms';
+import { MatDialogRef, MatDialog } from '@angular/material/dialog';
 
 @Component({
     selector: 'app-montanhas',
@@ -10,12 +12,18 @@ import { MatTableDataSource } from '@angular/material/table';
     styleUrls: ['./montanhas.component.scss']
 })
 export class MontanhasComponent implements OnInit {
+
+    composeForm: FormGroup;
+
     montanha: Montanha;
     montanhas: Montanha[];
 
-    displayedColumns: string[] = ['id', 'nome'];
+    displayedColumns: string[] = ['nome', 'altitude', 'extensao', 'duracao', 'nivel', 'latitude', 'longitude', 'acoes'];
 
-    constructor(private montanhaservice: MontanhaService) {}
+    constructor(private montanhaservice: MontanhaService,
+                public dialog: MatDialog,
+                private _formBuilder: FormBuilder
+    ) { }
 
     ngOnInit() {
         this.obterTodos();
@@ -30,5 +38,13 @@ export class MontanhasComponent implements OnInit {
                 console.log(error);
             }
         );
+    }
+
+    openDialog() {
+        const dialogRef = this.dialog.open(MontanhasComponent);
+
+        dialogRef.afterClosed().subscribe(result => {
+            console.log(`Dialog result: ${result}`);
+        });
     }
 }

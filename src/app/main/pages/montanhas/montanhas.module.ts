@@ -22,12 +22,11 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSortModule } from '@angular/material/sort';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { FormsModule } from '@angular/forms';
-import { MatCheckboxModule } from '@angular/material/checkbox';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { TranslateModule } from '@ngx-translate/core';
 import { FuseSharedModule } from '@fuse/shared.module';
 import { FuseSidebarModule } from '@fuse/components';
+import { MatTabsModule } from '@angular/material/tabs';
+import { FuseDemoModule } from '@fuse/components';
+import { FuseDemoContentComponent } from '@fuse/components/demo/demo-content/demo-content.component';
 
 
 const routes: Routes = [
@@ -39,10 +38,16 @@ const routes: Routes = [
     imports: [
         CommonModule,
         [RouterModule.forChild(routes)],
+        MatButtonModule,
+        FuseSidebarModule,
+        FuseDemoModule,
+        FuseSharedModule,
+        MatDividerModule,
+        MatIconModule,
         MatTableModule,
         MatPaginatorModule,
         RouterModule,
-        MatFormFieldModule,
+        MatFormFieldModule,  
         MatDividerModule,
         MatListModule,
         MatButtonModule,
@@ -63,24 +68,13 @@ const routes: Routes = [
         MatSlideToggleModule,
         MatSortModule,
         MatTableModule,
+        MatTabsModule,
         MatToolbarModule,
         MatTooltipModule,
-        FormsModule,
-        CommonModule,
-        MatButtonModule,
-        MatCheckboxModule,
-        MatDialogModule,
-        MatSnackBarModule,
-        MatFormFieldModule,
-        MatIconModule,
-        MatInputModule,
-        MatMenuModule,
-        MatRippleModule,
-        MatSelectModule,
-        MatToolbarModule,
-        TranslateModule,
-        FuseSharedModule,
-        FuseSidebarModule
+    
+    ],
+    exports     : [
+        FuseDemoContentComponent
     ],
     declarations: [MontanhasComponent]
 })

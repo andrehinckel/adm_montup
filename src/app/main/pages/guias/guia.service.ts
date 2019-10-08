@@ -28,7 +28,7 @@ export class GuiaService {
 
     inserirCertificado(guia: Guia, nomeArquivo: File): Observable<any>{
 
-        let formData:FormData = new FormData();
+        const formData:FormData = new FormData();
         formData.append('certificado', nomeArquivo, nomeArquivo.name);
         formData.append('idCidade', guia.idCidade.toString());
         formData.append('idMontanha', guia.idMontanha.toString());
@@ -62,6 +62,6 @@ export class GuiaService {
     }
 
     alterarGuia(guia: Guia): Observable<any> {
-        return this.http.post(`${url}/alterar`, guia);
+        return this.http.put(`${url}/alterar`, guia);
     }
 }

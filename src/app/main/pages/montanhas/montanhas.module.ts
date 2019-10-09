@@ -33,6 +33,7 @@ import { FormsModule } from '@angular/forms';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { HttpClientModule } from '@angular/common/http';
 import { MatStepperModule } from '@angular/material/stepper';
+import { NgxMaskModule } from 'ngx-mask';
 
 const routes: Routes = [
     { path: '', component: MontanhasComponent},
@@ -42,6 +43,7 @@ const routes: Routes = [
 
 @NgModule({
     imports: [
+        NgxMaskModule.forRoot(),
         CommonModule,
         [RouterModule.forChild(routes)],
         MatButtonModule,

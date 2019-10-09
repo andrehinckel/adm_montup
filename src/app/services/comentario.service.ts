@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'environments/environment';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Comentario } from 'app/models/Comentario';
 
@@ -24,8 +24,10 @@ export class ComentarioService {
         return this.http.post(`${url}/cadastro`, comentario);
     }
 
-    apagarComentario(): Observable<any> {
-        return this.http.delete(`${url}/apagar`);
+    apagarComentario(id: number): Observable<any> {
+        const params = new HttpParams()
+        .append('id', id.toString());
+        return this.http.delete(`${url}/apagar?`, { params });
     }
     
     alterarComentario(comentario: Comentario): Observable<any>{

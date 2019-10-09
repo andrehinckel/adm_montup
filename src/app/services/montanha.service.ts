@@ -40,8 +40,10 @@ export class MontanhaService {
         return this.http.post(`${url}/cadastro`, montanha);
     }
 
-    apagarMontanha(): Observable<any> {
-        return this.http.delete(`${url}/apagar`);
+    apagarMontanha(id: number): Observable<any> {
+           const params = new HttpParams()
+            .append('id', id.toString());
+           return this.http.delete(`${url}/apagar?`, { params });
     }
 
     alterarMontanha(montanha: Montanha): Observable<any> {

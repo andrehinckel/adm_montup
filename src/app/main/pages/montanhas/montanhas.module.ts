@@ -27,10 +27,16 @@ import { FuseSidebarModule } from '@fuse/components';
 import { MatTabsModule } from '@angular/material/tabs';
 import { FuseDemoModule } from '@fuse/components';
 import { FuseDemoContentComponent } from '@fuse/components/demo/demo-content/demo-content.component';
-
+import { CadastrarComponent } from './cadastrar/cadastrar.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { FormsModule } from '@angular/forms';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { HttpClientModule } from '@angular/common/http';
+import { MatStepperModule } from '@angular/material/stepper';
 
 const routes: Routes = [
-    { path: '', component: MontanhasComponent}
+    { path: '', component: MontanhasComponent},
+    { path: 'cadastrar', component: CadastrarComponent}
 ]
 
 
@@ -44,6 +50,7 @@ const routes: Routes = [
         FuseSharedModule,
         MatDividerModule,
         MatIconModule,
+        MatDatepickerModule,
         MatTableModule,
         MatPaginatorModule,
         RouterModule,
@@ -71,11 +78,33 @@ const routes: Routes = [
         MatTabsModule,
         MatToolbarModule,
         MatTooltipModule,
+        FormsModule,
+        CommonModule,
+        MatButtonModule,
+        MatCheckboxModule,
+        MatFormFieldModule,
+        MatIconModule,
+        MatInputModule,
+        MatSelectModule,
+        FuseSharedModule,
+        MatDividerModule,
+        MatTabsModule,
+        MatButtonModule,
+        MatDatepickerModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatSelectModule,
+        MatStepperModule,
+        FuseSharedModule,
+        FuseSharedModule,
+        HttpClientModule,
+        MatDialogModule,
+        MatMomentDateModule,
     
     ],
     exports     : [
         FuseDemoContentComponent
     ],
-    declarations: [MontanhasComponent]
+    declarations: [MontanhasComponent, CadastrarComponent]
 })
 export class MontanhasModule {}

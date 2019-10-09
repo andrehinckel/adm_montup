@@ -47,4 +47,14 @@ export class ComentarioComponent implements OnInit {
             console.log(error);
         });
     }
+
+    excluirComentario(comentario: Comentario) {
+        this.comentario = comentario;
+        this.comentarioService.apagarComentario(this.comentario.id).subscribe(
+            () => {
+                this.obterTodos();
+            }, error => {
+                console.log(error);
+            });   
+    }
 }

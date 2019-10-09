@@ -1,0 +1,42 @@
+@import "src/@fuse/scss/fuse";
+
+registro-guia{
+  .header2 {
+   
+    background: linear-gradient(to left, rgba(9, 179, 185, 0.753) 50%, rgba(11, 149, 64, 0.685) 100%);
+  }
+    .content {
+
+        form {
+            width: 100%;
+            
+            
+        }
+        
+        .form-errors-model {
+            flex: 1;
+
+           
+        }
+
+        .horizontal-stepper-wrapper,
+        .vertical-stepper-wrapper {
+            width: 100%;
+            
+        }
+    }
+    .example-h2 {
+        margin: 10px;
+      }
+      
+      .example-section {
+        display: flex;
+        align-content: center;
+        align-items: center;
+        height: 60px;
+      }
+      
+      .example-margin {
+        margin: 0 10px;
+      }
+}

@@ -1,61 +1,63 @@
 <div class="page-layout carded left-sidebar ">
     <div class="center">
+        <div>
+            <button mat-raised-button color="accent" [routerLink]="'/montanha/cadastrar'">Cadastrar</button>
+        </div>
         <div class="content-card">
+
             <table mat-table [dataSource]="montanhas" class="mat-elevation-z">
 
                 <ng-container matColumnDef="nome">
                     <th mat-header-cell *matHeaderCellDef>Nome</th>
-                    <td mat-cell *matCellDef="let element"> {{element.nome}}
+                    <td mat-cell *matCellDef="let montanha"> {{montanha.nome}}
                     </td>
                 </ng-container>
 
                 <ng-container matColumnDef="altitude">
                     <th mat-header-cell *matHeaderCellDef>Altitude</th>
-                    <td mat-cell *matCellDef="let element"> {{element.altitude}}
+                    <td mat-cell *matCellDef="let montanha"> {{montanha.altitude}}
                     </td>
                 </ng-container>
 
                 <ng-container matColumnDef="extensao">
                     <th mat-header-cell *matHeaderCellDef>Extensão</th>
-                    <td mat-cell *matCellDef="let element"> {{element.extensao}}
+                    <td mat-cell *matCellDef="let montanha"> {{montanha.extensao}}
                     </td>
                 </ng-container>
 
                 <ng-container matColumnDef="duracao">
                     <th mat-header-cell *matHeaderCellDef>Duração</th>
-                    <td mat-cell *matCellDef="let element"> {{element.duracao}}
+                    <td mat-cell *matCellDef="let montanha"> {{montanha.duracao}}
                     </td>
                 </ng-container>
 
                 <ng-container matColumnDef="nivel">
                     <th mat-header-cell *matHeaderCellDef>Nível</th>
-                    <td mat-cell *matCellDef="let element"> {{element.nivel}}
+                    <td mat-cell *matCellDef="let montanha"> {{montanha.nivel}}
                     </td>
                 </ng-container>
 
                 <ng-container matColumnDef="latitude">
                     <th mat-header-cell *matHeaderCellDef>Latitude</th>
-                    <td mat-cell *matCellDef="let element"> {{element.latitude}}
+                    <td mat-cell *matCellDef="let montanha"> {{montanha.latitude}}
                     </td>
                 </ng-container>
 
                 <ng-container matColumnDef="longitude">
                     <th mat-header-cell *matHeaderCellDef>Longitude</th>
-                    <td mat-cell *matCellDef="let element"> {{element.longitude}}
+                    <td mat-cell *matCellDef="let montanha"> {{montanha.longitude}}
                     </td>
                 </ng-container>
 
                 <ng-container matColumnDef="acoes">
                     <th mat-header-cell *matHeaderCellDef>Ações</th>
-                    <td mat-cell *matCellDef="let element"><button mat-raised-button color="warn"
-                            [routerLink]="'/cadastrar'">Excluir</button>
+                    <td mat-cell *matCellDef="let montanha"><button mat-raised-button color="warn" [value]="montanha.id" (click)="excluirMontanha(montanha)">Excluir</button>
                         <button mat-raised-button color="primary">Editar</button>
                     </td>
                 </ng-container>
 
                 <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                <tr mat-row *matRowDef="let row; columns: displayedColumns; let element;"
-                    routerLink="/guia/perfil-guia/{{element.id}}"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns; let element;"></tr>
             </table>
         </div>
     </div>

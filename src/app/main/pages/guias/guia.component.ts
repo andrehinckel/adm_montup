@@ -2,7 +2,8 @@ import { Component, ViewEncapsulation, OnInit } from '@angular/core';
 import { fuseAnimations } from '@fuse/animations';
 import { Guia } from 'app/models/guia';
 import { Usuario } from 'app/models/usuario';
-import { GuiaService } from './guia.service';
+import { GuiaService } from 'app/services/guia.service';
+import { UsuarioService } from 'app/services/usuario-meu-perfil.service';
 
 @Component({
     selector: 'guia',
@@ -15,20 +16,23 @@ export class GuiaComponent implements OnInit {
 
     _filtroLista = '';
     guiasFiltrados: any = [];
-    guias: any = [];
+    guias: Guia[];
     guia: Guia;
     usuario: Usuario;
-    displayedColumns: string[] = ['foto', 'nome', 'telefone', 'instagram'];
+    usuarios: Usuario[];
+    displayedColumns: string[] = ['nome', 'telefone', 'instagram'];
     busca = '';
     idCidade = 0;
     idMontanha = 0;
     familia: Object[];
     urlImagem: string;
-    constructor(private guiaService: GuiaService) { }
+    constructor(private guiaService: GuiaService,
+                private usuarioService: UsuarioService
+        ) { }
 
     ngOnInit(): void {
-        this.obterTodos();
-        console.log(this.familia);
+        this.obterTodosGuia();
+        this.obterTodosUsuario();
     }
 
     obterTodos() {
@@ -39,6 +43,27 @@ export class GuiaComponent implements OnInit {
             console.log(error);
         });
     }
+
+    obterTodosGuia() {
+        this.guiaService.obterTodosGuia().subscribe(
+            (x: Guia[]) => {
+                this.guias = x;
+            },
+            error => {
+                console.log(error);
+            }
+        );
+    }
+
+    obterTodosUsuario(){
+        this.usuarioService.obterTodos().subscribe((
+            _usuarios: Usuario[]) => {
+            this.usuarios = _usuarios;
+        }, error => {
+            console.log(error);
+        });
+    }
+
 
 
     reciverFeedback(respostaFilho) {

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Montanha } from 'app/models/montanha';
 import { MontanhaService } from 'app/services/montanha.service';
 import { MatPaginator } from '@angular/material/paginator';
@@ -15,7 +15,9 @@ export class MontanhasComponent implements OnInit {
 
     composeForm: FormGroup;
 
-    montanha: Montanha;
+    @Input() id: number;
+
+    montanha: Montanha = new Montanha();
     montanhas: Montanha[];
 
     displayedColumns: string[] = ['nome', 'altitude', 'extensao', 'duracao', 'nivel', 'latitude', 'longitude', 'acoes'];
@@ -46,5 +48,23 @@ export class MontanhasComponent implements OnInit {
         dialogRef.afterClosed().subscribe(result => {
             console.log(`Dialog result: ${result}`);
         });
+    }
+
+    ObterPeloId() {
+        this.montanhaservice.obterPeloIdMontanha(this.id).subscribe(
+            (x: Montanha) => {
+                this.id = this.montanha.id;
+                this.montanha = x;
+            });
+    }
+
+    excluirMontanha(montanha: Montanha) {
+        this.montanha = montanha;
+        this.montanhaservice.apagarMontanha(this.montanha.id).subscribe(
+            () => {
+                this.obterTodos();
+            }, error => {
+                console.log(error);
+            });   
     }
 }

@@ -1,0 +1,94 @@
+<div id="registro-guia " fxLayout="mat-card">
+
+        <div class="content header2 p-24">
+            <div class="mb-24 " fxLayout="column" fxLayoutAlign="start" fxLayout.gt-md="row">
+    
+    
+                <form class="mat-card mat-elevation-z4 p-24 mr-24" fxLayout="column" fxLayoutAlign="start" fxFlex="1 0 auto"
+                    name="form" [formGroup]="form">
+                    <div fxLayout="row" fxLayoutAlign="start center" fxFlex="1 0 auto">
+                        <mat-form-field appearance="outline" fxFlex="33">
+                            <mat-label>Cidade</mat-label>
+                            <mat-select formControlName="idCidade" [(ngModel)]="idCidade"
+                                (selectionChange)="obterTodasCidades()">
+                                <mat-option *ngFor="let cidade of cidades" [value]="cidade.id">
+                                    {{cidade.nome}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+    
+                        <mat-form-field appearance="outline" fxFlex="34" class="px-8">
+                            <mat-label>Nome</mat-label>
+                            <input matInput #nome value="" formControlName="nome" required />
+                            <mat-icon matSuffix class="secondary-text">markunread_mailbox</mat-icon>
+                            <mat-error>Nome é necessário!</mat-error>
+                        </mat-form-field>
+    
+                        <mat-form-field appearance="outline" fxFlex="33">
+                            <mat-label>Altitude</mat-label>
+                            <input matInput #altitude value="" formControlName="altitude" required />
+                            <mat-icon matSuffix class="secondary-text">featured_play_list</mat-icon>
+                            <mat-error>Altitude é necessária!</mat-error>
+                        </mat-form-field>
+                    </div>
+
+                    <div fxLayout="row wrap" fxLayoutAlign="start center" fxFlex="1 0 auto">
+                        <mat-form-field appearance="outline" fxFlex="100">
+                            <mat-label>Extensao da montanha</mat-label>
+                            <input matInput #extensao formControlName="extensao" required />
+                            <mat-error>É necessario!</mat-error>
+                        </mat-form-field>
+
+                        <mat-form-field appearance="outline" fxFlex="100">
+                                <input matInput [matDatepicker]="duracao" maxlength="8"
+                                    placeholder="Duracao" formControlName="duracao">
+                                <mat-datepicker-toggle matSuffix [for]="duracao"></mat-datepicker-toggle>
+                                <mat-datepicker #duracao></mat-datepicker>
+                        </mat-form-field>
+    
+                        <mat-form-field appearance="outline" fxFlex="100">
+                            <mat-label>Nivel da montanha</mat-label>
+                            <input matInput formControlName="nivel" required />
+                            <mat-error>É necessário!</mat-error>
+                        </mat-form-field>
+                    </div>
+    
+                    <div fxLayout="row" fxLayoutAlign="start center" fxFlex="1 0 auto">
+    
+                        <mat-form-field appearance="outline" fxFlex="50">
+                            <mat-label>Idade Minima</mat-label>
+                            <input matInput #idadeMinina value="" formControlName="idadeMinima" required />
+                            <mat-icon matSuffix class="secondary-text">call</mat-icon>
+                            <mat-error>Número de Idade Minima é necessário!</mat-error>
+                        </mat-form-field>
+    
+                        <mat-form-field appearance="outline" fxFlex="50" class="px-8">
+                            <mat-label>Descricao</mat-label>
+                            <textarea matInput formControlName="descricao"></textarea>
+                            <mat-icon matSuffix class="secondary-text">thumb_up_alt</mat-icon>
+                        </mat-form-field>
+    
+                    </div>
+    
+                    <div fxLayout="row" fxLayoutAlign="start center" fxFlex="1 0 auto">
+                            <mat-form-field appearance="outline" fxFlex="50">
+                                    <mat-label>Latitude</mat-label>
+                                    <input matInput #latitude value="" formControlName="latitude" required />
+                                    <mat-icon matSuffix class="secondary-text">call</mat-icon>
+                                    <mat-error>Número de Idade Minima é necessário!</mat-error>
+                            </mat-form-field>
+
+                            <mat-form-field appearance="outline" fxFlex="50">
+                                    <mat-label>Longitude</mat-label>
+                                    <input matInput #longitude value="" formControlName="longitude" required />
+                                    <mat-icon matSuffix class="secondary-text">call</mat-icon>
+                                    <mat-error>Número de Idade Minima é necessário!</mat-error>
+                            </mat-form-field>
+                    </div>
+                    <div fxLayout="row" fxLayoutAlign="end center">
+                        <button mat-raised-button class="teal-900-bg fuse-white-fg" fxFlex="25" (click)="cadastrarMontanha()">Salvar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>

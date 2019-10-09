@@ -46,6 +46,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { AutenticaoInterceptor } from './main/pages/login/autenticacao.interceptor';
 import { GuiaComponent } from './main/pages/guias/guia.component';
 import { ComentarioComponent } from './main/pages/comentarios/comentario/comentario.component';
+import { FuseDemoContentComponent } from '@fuse/components/demo/demo-content/demo-content.component';
 
 @NgModule({
     declarations: [
@@ -181,7 +182,10 @@ import { ComentarioComponent } from './main/pages/comentarios/comentario/comenta
     ],
     providers: [
         { provide: HTTP_INTERCEPTORS, useClass: AutenticaoInterceptor, multi: true}
-    ]
+    ],
+    exports     : [
+        FuseDemoContentComponent
+    ],
 })
 export class AppModule
 {

@@ -1,33 +1,42 @@
-<div class="page-layout blank p-24" fusePerfectScrollbar>
-    <table mat-table [dataSource]="guias" class="mat-elevation-z">
+<div class="page-layout blank p-24">
+    <div class="center">
+        <div>
+            <button
+                mat-raised-button
+                color="accent"
+                [routerLink]="'/montanha/cadastrar'">
+                Cadastrar
+            </button>
+        </div>
+        <div class="content-card">
+            <table mat-table [dataSource]="guias" class="mat-elevation-z">
 
-        <ng-container matColumnDef="foto">
-            <th mat-header-cell *matHeaderCellDef>Foto </th>
-            <td mat-cell *matCellDef="let element">
-                <img class="circle"
-                    src="https://localhost:5001/api/usuario/obterimagemusuario?id={{element.usuario.id}}">
-            </td>
-        </ng-container>
+                <ng-container matColumnDef="nome">
+                    <th mat-header-cell *matHeaderCellDef>Nome</th>
+                    <td mat-cell *matCellDef="let guia">
+                        {{ guia.usuario.userName }} {{ guia.usuario.sobrenome }}
+                    </td>
+                </ng-container>
 
-        <ng-container matColumnDef="nome">
-            <th mat-header-cell *matHeaderCellDef>Nome</th>
-            <td mat-cell *matCellDef="let element"> {{element.usuario.userName}} {{element.usuario.sobrenome}}
-            </td>
-        </ng-container>
+                <ng-container matColumnDef="telefone">
+                    <th mat-header-cell *matHeaderCellDef>Telefone</th>
+                    <td mat-cell *matCellDef="let guia">{{guia.telefone}</td>
+                </ng-container>
 
-        <ng-container matColumnDef="telefone">
-            <th mat-header-cell *matHeaderCellDef>Telefone </th>
-            <td mat-cell *matCellDef="let element"> {{element.telefone} </td>
-        </ng-container>
+                <ng-container matColumnDef="instagram">
+                    <th mat-header-cell *matHeaderCellDef>Instagram</th>
+                    <td mat-cell *matCellDef="let guia">
+                        {{ guia.instagram }}
+                    </td>
+                </ng-container>
 
-        <ng-container matColumnDef="instagram">
-            <th mat-header-cell *matHeaderCellDef>Instagram</th>
-            <td mat-cell *matCellDef="let element"> {{element.instagram}} </td>
-        </ng-container>
-
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns; let element;"
-            routerLink="/guia/perfil-guia/{{element.id}}"></tr>
-    </table>
-
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr
+                    mat-row
+                    *matRowDef="let row; columns: displayedColumns; let guia"
+                    routerLink="/guia/perfil-guia/{{ guia.id }}"
+                ></tr>
+            </table>
+        </div>
+    </div>
 </div>
